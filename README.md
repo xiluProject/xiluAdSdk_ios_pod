@@ -1,6 +1,6 @@
-# ADXiluSDK - 聚合广告SDK
+# xiluAdSdk - 聚合广告SDK
 
-ADXiluSDK是一个支持多平台广告聚合的iOS SDK，提供统一的API接口，支持MSMobAdSDK和BeiZiSDK的集成。支持Objective-C和Swift/SwiftUI项目。
+xiluAdSdk是一个支持多平台广告聚合的iOS SDK，提供统一的API接口，支持MSMobAdSDK和BeiZiSDK的集成。支持Objective-C和Swift/SwiftUI项目。
 
 ## 特性
 
@@ -46,7 +46,7 @@ target 'YourApp' do
   use_frameworks!
   
   # 使用远程版本
-  pod 'ADXiluSDK', '~> 1.0.0'
+  pod 'xiluAdSdk', '~> 1.0.0'
 end
 ```
 

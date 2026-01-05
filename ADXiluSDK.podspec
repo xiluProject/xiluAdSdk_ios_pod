@@ -7,18 +7,17 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'ADXiluSDK'
+  s.name             = 'xiluAdSdk'
   s.version          = '1.0.6'
   s.summary          = 'ADXilu iOS SDK - 广告聚合SDK'
 
   s.description      = <<-DESC
     ADXilu iOS SDK 是一个广告聚合SDK，支持多个主流广告平台，提供统一的广告接口。
   DESC
-
-  s.homepage         = 'https://github.com/xiluProject/XiluSdk_ios_pod'
+  s.homepage         = 'https://github.com/xiluProject/xiluAdSdk_ios_pod'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'zyn' => 'zyn@163.com' }
-  s.source           = { :git => 'https://github.com/xiluProject/XiluSdk_ios_pod.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/xiluProject/xiluAdSdk_ios_pod.git', :tag => s.version.to_s }
 
   s.platform    = :ios, '12.2'
   s.ios.deployment_target = '12.2'
