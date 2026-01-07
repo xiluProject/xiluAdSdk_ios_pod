@@ -33,6 +33,7 @@ Pod::Spec.new do |s|
   s.dependency  'ObjectMapper'
   s.dependency  'CryptoSwift'
   s.dependency   'SnapKit'
+  s.dependency   'GDTMobSDK', '4.15.65'
   s.dependency  'BeiZiSDK-iOS', '4.90.7.0'
   s.dependency  'MSMobAdSDK/MS', '2.7.7.3'
   s.exclude_files = "ADXiluSDK/Classes/Tool/*.md" # 排除所有 md 文件
