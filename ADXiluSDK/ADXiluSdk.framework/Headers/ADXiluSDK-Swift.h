@@ -285,6 +285,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import CoreFoundation;
 @import CoreLocation;
 @import Foundation;
+@import GDTMobSDK;
 @import MSAdSDK;
 @import ObjectiveC;
 #endif
@@ -349,9 +350,10 @@ SWIFT_CLASS("_TtC9ADXiluSDK12ADXiluAdInfo")
 
 /// 广告平台类型
 typedef SWIFT_ENUM(NSInteger, ADXiluAdPlatform, open) {
+  ADXiluAdPlatformAll = 0,
   ADXiluAdPlatformBeizi = 1,
   ADXiluAdPlatformMs = 2,
-  ADXiluAdPlatformAll = 3,
+  ADXiluAdPlatformGdt = 3,
 };
 
 /// 广告尺寸
@@ -748,6 +750,21 @@ SWIFT_CLASS("_TtC9ADXiluSDK14ADXiluSplashAd")
 - (void)BeiZi_splash:(BeiZiSplash * _Nonnull)beiziSplash didFailToLoadAdWithError:(BeiZiRequestError * _Nonnull)error;
 @end
 
+@class GDTSplashAd;
+@interface ADXiluSplashAd (SWIFT_EXTENSION(ADXiluSDK)) <GDTSplashAdDelegate>
+- (void)splashAdSuccessPresentScreen:(GDTSplashAd * _Null_unspecified)splashAd;
+- (void)splashAdDidLoad:(GDTSplashAd * _Null_unspecified)splashAd;
+- (void)splashAdFailToPresent:(GDTSplashAd * _Null_unspecified)splashAd withError:(NSError * _Null_unspecified)error;
+- (void)splashAdExposured:(GDTSplashAd * _Null_unspecified)splashAd;
+- (void)splashAdClicked:(GDTSplashAd * _Null_unspecified)splashAd;
+- (void)splashAdApplicationWillEnterBackground:(GDTSplashAd * _Null_unspecified)splashAd;
+- (void)splashAdWillClosed:(GDTSplashAd * _Null_unspecified)splashAd;
+- (void)splashAdClosed:(GDTSplashAd * _Null_unspecified)splashAd;
+- (void)splashAdDidPresentFullScreenModal:(GDTSplashAd * _Null_unspecified)splashAd;
+- (void)splashAdWillDismissFullScreenModal:(GDTSplashAd * _Null_unspecified)splashAd;
+- (void)splashAdDidDismissFullScreenModal:(GDTSplashAd * _Null_unspecified)splashAd;
+@end
+
 @class MSSplashAd;
 @interface ADXiluSplashAd (SWIFT_EXTENSION(ADXiluSDK)) <MSSplashAdDelegate>
 - (void)msSplashPresent:(MSSplashAd * _Null_unspecified)splashAd;
@@ -789,6 +806,10 @@ typedef SWIFT_ENUM(NSInteger, ADXiluSplashAdStyle, open) {
   ADXiluSplashAdStyleHalfScreen = 1,
   ADXiluSplashAdStyleImmersive = 2,
 };
+
+@interface GDTSplashAd (SWIFT_EXTENSION(ADXiluSDK))
+@property (nonatomic, readonly, copy) NSString * _Nonnull description;
+@end
 
 @interface MSInterstitialAd (SWIFT_EXTENSION(ADXiluSDK))
 @property (nonatomic, readonly, copy) NSString * _Nonnull description;

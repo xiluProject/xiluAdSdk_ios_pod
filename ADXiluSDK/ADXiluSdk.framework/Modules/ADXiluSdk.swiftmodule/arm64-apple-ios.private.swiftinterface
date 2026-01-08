@@ -11,6 +11,7 @@ import CoreLocation
 import CoreTelephony
 import CryptoSwift
 import Foundation
+import GDTMobSDK
 import MSAdSDK
 import Network
 import Swift
@@ -731,9 +732,10 @@ extension MSAdSDK.MSRewardVideoAd : ADXiluSDK.ADXiluLoadProtocol {
   @objc deinit
 }
 @objc public enum ADXiluAdPlatform : Swift.Int {
+  case all = 0
   case beizi = 1
   case ms = 2
-  case all
+  case gdt = 3
   public var name: Swift.String {
     get
   }
@@ -877,12 +879,55 @@ extension ADXiluSDK.ADXiluSplashAd : BeiZiSDK.BeiZiSplashDelegate {
   @objc dynamic public func beiZi_splashZoomOutDidClose(_ beiziSplash: BeiZiSDK.BeiZiSplash)
   @objc dynamic public func beiZi_splash(_ beiziSplash: BeiZiSDK.BeiZiSplash, didFailToLoadAdWithError error: BeiZiSDK.BeiZiRequestError)
 }
+extension ADXiluSDK.ADXiluSplashAd : GDTMobSDK.GDTSplashAdDelegate {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc dynamic public func splashAdSuccessPresentScreen(_ splashAd: GDTMobSDK.GDTSplashAd!)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc dynamic public func splashAdDidLoad(_ splashAd: GDTMobSDK.GDTSplashAd!)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc dynamic public func splashAdFail(toPresent splashAd: GDTMobSDK.GDTSplashAd!, withError error: (any Swift.Error)!)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc dynamic public func splashAdExposured(_ splashAd: GDTMobSDK.GDTSplashAd!)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc dynamic public func splashAdClicked(_ splashAd: GDTMobSDK.GDTSplashAd!)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc dynamic public func splashAdApplicationWillEnterBackground(_ splashAd: GDTMobSDK.GDTSplashAd!)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc dynamic public func splashAdWillClosed(_ splashAd: GDTMobSDK.GDTSplashAd!)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc dynamic public func splashAdClosed(_ splashAd: GDTMobSDK.GDTSplashAd!)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc dynamic public func splashAdDidPresentFullScreenModal(_ splashAd: GDTMobSDK.GDTSplashAd!)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc dynamic public func splashAdWillDismissFullScreenModal(_ splashAd: GDTMobSDK.GDTSplashAd!)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc dynamic public func splashAdDidDismissFullScreenModal(_ splashAd: GDTMobSDK.GDTSplashAd!)
+  #endif
+}
 extension BeiZiSDK.BeiZiSplash : ADXiluSDK.ADXiluLoadProtocol {
   #if compiler(>=5.3) && $NonescapableTypes
   public func xilu_showAd(view: Any? = nil)
   #endif
 }
 extension MSAdSDK.MSSplashAd : ADXiluSDK.ADXiluLoadProtocol {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func xilu_showAd(view: Any? = nil)
+  #endif
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+}
+extension GDTMobSDK.GDTSplashAd : ADXiluSDK.ADXiluLoadProtocol {
   #if compiler(>=5.3) && $NonescapableTypes
   public func xilu_showAd(view: Any? = nil)
   #endif
