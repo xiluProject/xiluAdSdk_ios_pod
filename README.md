@@ -780,7 +780,8 @@ MIT License
 如有问题或建议，请联系：
 
 - 邮箱: support@xilu.com
-- 文档: https://github.com/XiluSdk_ios_pod.git
+- 文档: https://github.com/xiluProject/xiluAdSdk_ios_pod
+- demo地址:https://github.com/xiluProject/XiluSdk_ios_demo
 - 问题反馈: https://github.com/xilu/ADXiluSDK-iOS/issues
 
 ## 更新日志
