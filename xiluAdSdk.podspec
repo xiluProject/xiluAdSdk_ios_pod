@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'xiluAdSdk'
-  s.version          = '1.0.7'
+  s.version          = '1.0.8'
   s.summary          = 'ADXilu iOS SDK - 广告聚合SDK'
 
   s.description      = <<-DESC
