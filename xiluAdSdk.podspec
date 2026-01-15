@@ -7,7 +7,8 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'xiluAdSdk'
+  # 修改点1：将 s.name 改为与实际框架名一致的 ADXiluSDK（保持大小写完整）
+  s.name             = 'ADXiluSDK'
   s.version          = '1.0.7'
   s.summary          = 'ADXilu iOS SDK - 广告聚合SDK'
 
@@ -25,12 +26,17 @@ Pod::Spec.new do |s|
  
   s.swift_version = "5.0"
   s.vendored_frameworks = "ADXiluSDK/*.framework"
+  
+  # 修改点2：新增 s.module_name，强制绑定框架内部的正式模块名 ADXiluSDK（与 .swiftmodule 中的名称一致）
+  s.module_name = 'ADXiluSDK'
+  
   # Swift 库必须开启模块化
   s.pod_target_xcconfig = {
     'DEFINES_MODULE' => 'YES', # 核心：生成模块，否则其他项目无法导入
     'SWIFT_VERSION' => '5.0'
   }
-#s.dependency  'ObjectMapper'
+  
+  #s.dependency  'ObjectMapper'
   s.dependency  'CryptoSwift'
   #s.dependency   'SnapKit'
   s.dependency   'GDTMobSDK', '4.15.65'
