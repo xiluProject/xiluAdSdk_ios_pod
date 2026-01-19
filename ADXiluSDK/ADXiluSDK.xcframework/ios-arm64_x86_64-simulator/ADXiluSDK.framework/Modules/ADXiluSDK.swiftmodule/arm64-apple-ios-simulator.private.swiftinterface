@@ -1,0 +1,921 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target arm64-apple-ios12.2-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name ADXiluSDK
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+@_exported import ADXiluSDK
+import AdSupport
+import AppTrackingTransparency
+import BeiZiSDK
+import SystemConfiguration.CaptiveNetwork
+import CoreLocation
+import CoreTelephony
+import CryptoSwift
+import Foundation
+import GDTMobSDK
+import MSAdSDK
+import Network
+import Swift
+import SystemConfiguration
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public protocol ADAdaptorProtocol {
+  func initialize()
+  func getVersion() -> Swift.String
+}
+@objc @_inheritsConvenienceInitializers public class ADAdaptor : ObjectiveC.NSObject, ADXiluSDK.ADAdaptorProtocol {
+  public func initialize()
+  public func getVersion() -> Swift.String
+  public static let shared: ADXiluSDK.ADAdaptor
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class ADDeviceInfoTool : ObjectiveC.NSObject {
+  public static let shared: ADXiluSDK.ADDeviceInfoTool
+  public func getDeviceEnvironmentInfo() -> ADXiluSDK.ADEnvironmentInfo
+  public func getDeviceEnvironmentInfoAsync(completion: @escaping (ADXiluSDK.ADEnvironmentInfo) -> Swift.Void)
+  public func requestLocationPermission()
+  public func startLocationUpdates()
+  public func stopLocationUpdates()
+  @objc deinit
+}
+extension ADXiluSDK.ADDeviceInfoTool : CoreLocation.CLLocationManagerDelegate {
+  @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didUpdateLocations locations: [_LocationEssentials.CLLocation])
+  @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didFailWithError error: any Swift.Error)
+  @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didChangeAuthorization status: CoreLocation.CLAuthorizationStatus)
+}
+public struct ADEnvironmentInfo : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum ADHTTPMethod : Swift.String, Swift.CaseIterable {
+  case GET
+  case POST
+  case PUT
+  case DELETE
+  case PATCH
+  public var rawValue: Swift.String {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias AllCases = [ADXiluSDK.ADHTTPMethod]
+  public typealias RawValue = Swift.String
+  nonisolated public static var allCases: [ADXiluSDK.ADHTTPMethod] {
+    get
+  }
+}
+public enum ADNetworkStatus : Swift.Int {
+  case unknown
+  case notReachable
+  case reachableViaWiFi
+  case reachableViaWWAN
+  public var description: Swift.String {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum ADRequestStatus : Swift.Int {
+  case pending
+  case loading
+  case success
+  case failed
+  case cancelled
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum ADNetworkError : Swift.Int, Swift.Error {
+  case invalidURL
+  case noData
+  case decodingError
+  case encodingError
+  case networkUnavailable
+  case timeout
+  case serverError
+  case unknown
+  public var localizedDescription: Swift.String {
+    get
+  }
+  public var code: Swift.Int {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public class ADRequestConfig {
+  public var timeoutInterval: Swift.Double
+  public var retryCount: Swift.Int
+  public var retryDelay: Swift.Double
+  public var headers: [Swift.String : Swift.String]
+  public var cachePolicy: Foundation.URLRequest.CachePolicy
+  public init()
+  @objc deinit
+}
+public class ADNetworkResponse {
+  final public let data: Foundation.Data?
+  final public let statusCode: Swift.Int
+  final public let headers: [Swift.String : Swift.String]
+  final public let request: Foundation.URLRequest?
+  final public let response: Foundation.HTTPURLResponse?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(data: Foundation.Data?, statusCode: Swift.Int, headers: [Swift.String : Swift.String], request: Foundation.URLRequest?, response: Foundation.HTTPURLResponse?)
+  #endif
+  public var isSuccess: Swift.Bool {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var jsonObject: Any? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var stringValue: Swift.String? {
+    get
+  }
+  #endif
+  @objc deinit
+}
+public protocol ADNetworkCallback : AnyObject {
+  func onSuccess(_ response: ADXiluSDK.ADNetworkResponse)
+  func onFailure(_ error: any Swift.Error)
+  func onProgress(_ progress: Swift.Float)
+}
+@_hasMissingDesignatedInitializers public class ADNetworkTool {
+  public static let shared: ADXiluSDK.ADNetworkTool
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func get(url: Swift.String, config: ADXiluSDK.ADRequestConfig = ADRequestConfig(), callback: (any ADXiluSDK.ADNetworkCallback)? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func post(url: Swift.String, body: Foundation.Data? = nil, config: ADXiluSDK.ADRequestConfig = ADRequestConfig(), callback: (any ADXiluSDK.ADNetworkCallback)? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func put(url: Swift.String, body: Foundation.Data? = nil, config: ADXiluSDK.ADRequestConfig = ADRequestConfig(), callback: (any ADXiluSDK.ADNetworkCallback)? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func delete(url: Swift.String, config: ADXiluSDK.ADRequestConfig = ADRequestConfig(), callback: (any ADXiluSDK.ADNetworkCallback)? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func postJSON(url: Swift.String, jsonObject: any Swift.Encodable, config: ADXiluSDK.ADRequestConfig = ADRequestConfig(), callback: (any ADXiluSDK.ADNetworkCallback)? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func postForm(url: Swift.String, parameters: [Swift.String : Swift.String], config: ADXiluSDK.ADRequestConfig = ADRequestConfig(), callback: (any ADXiluSDK.ADNetworkCallback)? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func request(method: ADXiluSDK.ADHTTPMethod, url: Swift.String, body: Foundation.Data? = nil, config: ADXiluSDK.ADRequestConfig = ADRequestConfig(), callback: (any ADXiluSDK.ADNetworkCallback)? = nil)
+  #endif
+  public func cancelAllRequests()
+  public func checkNetworkStatus() -> ADXiluSDK.ADNetworkStatus
+  @objc deinit
+}
+public class ADSDKInitCallback : ADXiluSDK.ADNetworkCallback {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(completion: @escaping (Swift.Result<ADXiluSDK.ADSDKResponse, any Swift.Error>) -> Swift.Void, debugMode: Swift.Bool = false)
+  #endif
+  public func onSuccess(_ response: ADXiluSDK.ADNetworkResponse)
+  public func onFailure(_ error: any Swift.Error)
+  public func onProgress(_ progress: Swift.Float)
+  @objc deinit
+}
+extension ADXiluSDK.ADSDKInitCallback {
+  public static func createSuccessCallback(debugMode: Swift.Bool = false, onSuccess: @escaping (ADXiluSDK.ADSDKResponse) -> Swift.Void) -> ADXiluSDK.ADSDKInitCallback
+  public static func createFullCallback(debugMode: Swift.Bool = false, onSuccess: @escaping (ADXiluSDK.ADSDKResponse) -> Swift.Void, onFailure: @escaping (any Swift.Error) -> Swift.Void) -> ADXiluSDK.ADSDKInitCallback
+}
+public struct ADSDKResponse : Swift.Codable {
+  public let code: Swift.Int
+  public let msg: Swift.String
+  public let requestId: Swift.String
+  public let ads: ADXiluSDK.ADAdsConfig?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(code: Swift.Int, msg: Swift.String, requestId: Swift.String, ads: ADXiluSDK.ADAdsConfig?)
+  #endif
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ADAdsConfig : Swift.Codable {
+  public let accId: Swift.Int
+  public let accName: Swift.String
+  public let advAccId: Swift.String
+  public let appKey: Swift.String
+  public let packageName: Swift.String
+  public let apiInterval: Swift.Int
+  public let downTip: Swift.Int
+  public let api: ADXiluSDK.ADApiConfig
+  public let regional: ADXiluSDK.ADRegionalConfig
+  public let model: Swift.Int
+  public let thirdAppId: Swift.String
+  public let thirdAdslotId: Swift.String
+  public let requestHeaderCtl: Swift.Int
+  public let configReloadCount: Swift.Int
+  public let auditMatch: Swift.Int
+  public let log: ADXiluSDK.ADLogConfig
+  public let tracking: ADXiluSDK.ADTrackingConfig
+  public let sdk: ADXiluSDK.ADSDKInfo
+  public let sdkConfig: ADXiluSDK.ADSDKConfigs
+  public let networkList: [ADXiluSDK.ADNetworkItem]
+  public let adPosList: [ADXiluSDK.ADAdPosition]
+  public init(accId: Swift.Int, accName: Swift.String, advAccId: Swift.String, appKey: Swift.String, packageName: Swift.String, apiInterval: Swift.Int, downTip: Swift.Int, api: ADXiluSDK.ADApiConfig, regional: ADXiluSDK.ADRegionalConfig, model: Swift.Int, thirdAppId: Swift.String, thirdAdslotId: Swift.String, requestHeaderCtl: Swift.Int, configReloadCount: Swift.Int, auditMatch: Swift.Int, log: ADXiluSDK.ADLogConfig, tracking: ADXiluSDK.ADTrackingConfig, sdk: ADXiluSDK.ADSDKInfo, sdkConfig: ADXiluSDK.ADSDKConfigs, networkList: [ADXiluSDK.ADNetworkItem], adPosList: [ADXiluSDK.ADAdPosition])
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ADApiConfig : Swift.Codable {
+  public let url: Swift.String
+  public let adSlotId: Swift.String
+  public let adAppId: Swift.String
+  public init(url: Swift.String, adSlotId: Swift.String, adAppId: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ADRegionalConfig : Swift.Codable {
+  public let adDisabledRegional: [Swift.String]
+  public let adDisplayRegional: [Swift.String]
+  public let adBlacklist: [Swift.String]
+  public init(adDisabledRegional: [Swift.String], adDisplayRegional: [Swift.String], adBlacklist: [Swift.String])
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ADLogConfig : Swift.Codable {
+  public let enabled: Swift.Int
+  public let adMaterialReport: Swift.Int
+  public let installListRead: Swift.Int
+  public init(enabled: Swift.Int, adMaterialReport: Swift.Int, installListRead: Swift.Int)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ADTrackingConfig : Swift.Codable {
+  public let defaultEndpoint: [Swift.String]
+  public let eventEndpoint: [Swift.String]
+  public let errorEndpoint: [Swift.String]
+  public init(defaultEndpoint: [Swift.String], eventEndpoint: [Swift.String], errorEndpoint: [Swift.String])
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ADSDKInfo : Swift.Codable {
+  public let appType: Swift.Int
+  public let currentVersion: Swift.String
+  public let updateVersion: Swift.String
+  public let forceUpdate: Swift.Int
+  public let updateUrl: Swift.String
+  public let sdkType: Swift.Int
+  public init(appType: Swift.Int, currentVersion: Swift.String, updateVersion: Swift.String, forceUpdate: Swift.Int, updateUrl: Swift.String, sdkType: Swift.Int)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ADSDKConfigs : Swift.Codable {
+  public let bqt: ADXiluSDK.ADSDKConfigItem
+  public let gdt: ADXiluSDK.ADSDKConfigItem
+  public let ks: ADXiluSDK.ADSDKConfigItem
+  public let csj: ADXiluSDK.ADSDKConfigItem
+  public init(bqt: ADXiluSDK.ADSDKConfigItem, gdt: ADXiluSDK.ADSDKConfigItem, ks: ADXiluSDK.ADSDKConfigItem, csj: ADXiluSDK.ADSDKConfigItem)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ADSDKConfigItem : Swift.Codable {
+  public let sdkName: Swift.String
+  public let sdkVersion: Swift.String
+  public let updateVersion: Swift.String
+  public let updateUrl: Swift.String
+  public let forceUpdate: Swift.Int
+  public let versionStatus: Swift.Int
+  public init(sdkName: Swift.String, sdkVersion: Swift.String, updateVersion: Swift.String, updateUrl: Swift.String, forceUpdate: Swift.Int, versionStatus: Swift.Int)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ADNetworkItem : Swift.Codable {
+  public let platform: Swift.String
+  public let appId: Swift.String
+  public let priority: Swift.Int
+  public init(platform: Swift.String, appId: Swift.String, priority: Swift.Int)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ADAdPosition : Swift.Codable {
+  public let requestMode: Swift.String
+  public let biddingTimeout: Swift.Int
+  public let singleSourceTimeout: Swift.Int
+  public let totalTimeout: Swift.Int
+  public let price: Swift.Int
+  public let frequencyMode: Swift.Int
+  public let reward: Swift.Int
+  public let compelRefresh: Swift.Int
+  public let compelRefreshTime: Swift.Int
+  public let adType: Swift.String
+  public let renderType: Swift.Int
+  public let posId: Swift.String
+  public let networkAdPosList: [ADXiluSDK.ADNetworkAdPosition]
+  public init(requestMode: Swift.String, biddingTimeout: Swift.Int, singleSourceTimeout: Swift.Int, totalTimeout: Swift.Int, price: Swift.Int, frequencyMode: Swift.Int, reward: Swift.Int, compelRefresh: Swift.Int, compelRefreshTime: Swift.Int, adType: Swift.String, renderType: Swift.Int, posId: Swift.String, networkAdPosList: [ADXiluSDK.ADNetworkAdPosition])
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ADNetworkAdPosition : Swift.Codable {
+  public var platform: Swift.String
+  public var adType: Swift.String
+  public var ecpm: Swift.Int
+  public var ecpmType: Swift.String
+  public var skipShowTime: Swift.Int
+  public var screenDirect: Swift.Int
+  public var requestRate: Swift.Int
+  public var adTemplate: Swift.String?
+  public let adSlotId: Swift.String
+  public let appId: Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(platform: Swift.String, adType: Swift.String, ecpm: Swift.Int, ecpmType: Swift.String, skipShowTime: Swift.Int, screenDirect: Swift.Int, requestRate: Swift.Int, adTemplate: Swift.String?, adSlotId: Swift.String, appId: Swift.String)
+  #endif
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension ADXiluSDK.ADSDKResponse {
+  public var isSuccess: Swift.Bool {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var errorMessage: Swift.String? {
+    get
+  }
+  #endif
+}
+extension ADXiluSDK.ADAdsConfig {
+  public func getAdPositions(for adType: Swift.String) -> [ADXiluSDK.ADAdPosition]
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getNetworkConfig(for platform: Swift.String) -> ADXiluSDK.ADNetworkItem?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getSDKConfig(for platform: Swift.String) -> ADXiluSDK.ADSDKConfigItem?
+  #endif
+}
+@_inheritsConvenienceInitializers @objc public class ADXiluBannerAd : ADXiluSDK.ADXiluBaseAd {
+  @objc weak public var containerView: UIKit.UIView?
+  @objc public var nativeViewController: UIKit.UIViewController?
+  @objc public var showCloseBtn: Swift.Bool
+  @objc public var autoRefreshInterval: Swift.Int32
+  @objc override public init(adPosId: Swift.String, adSize: ADXiluSDK.ADXiluAdSize)
+  @objc override public func loadAd()
+  @objc public func dismissAd()
+  @objc deinit
+}
+@objc public protocol ADXiluBaseAdDelegate {
+  @objc optional func xilu_AdDidReceive(_ xiluAd: ADXiluSDK.ADXiluBaseAd, adInfo: ADXiluSDK.ADXiluAdInfo)
+  @objc optional func xilu_AdDidReceiveMuti(_ xiluAd: ADXiluSDK.ADXiluBaseAd, adInfos: [ADXiluSDK.ADXiluAdInfo])
+  @objc optional func xilu_AdDidExpose(_ xiluAd: ADXiluSDK.ADXiluBaseAd, adInfo: ADXiluSDK.ADXiluAdInfo)
+  @objc optional func xilu_AdDidClick(_ xiluAd: ADXiluSDK.ADXiluBaseAd, adInfo: ADXiluSDK.ADXiluAdInfo)
+  @objc optional func xilu_AdDidClose(_ xiluAd: ADXiluSDK.ADXiluBaseAd, adInfo: ADXiluSDK.ADXiluAdInfo)
+  @objc optional func xilu_AdDidSkip(_ xiluAd: ADXiluSDK.ADXiluBaseAd, adInfo: ADXiluSDK.ADXiluAdInfo)
+  @objc optional func xilu_AdDidFail(_ xiluAd: ADXiluSDK.ADXiluBaseAd, error: ADXiluSDK.ADXiluError)
+  @objc optional func xilu_AdTick(_ xiluAd: ADXiluSDK.ADXiluBaseAd, remainingTime: Foundation.TimeInterval)
+}
+@objc public class ADXiluBaseAd : ObjectiveC.NSObject {
+  @objc public var count: Swift.Int
+  @objc public var adPosId: Swift.String
+  @objc final public let adSize: ADXiluSDK.ADXiluAdSize
+  @objc public var skipButton: UIKit.UIButton?
+  @objc public var countdownDuration: Swift.Double
+  @objc public var onlySupportPlatform: ADXiluSDK.ADXiluAdPlatform
+  @objc final public let screenSize: CoreFoundation.CGSize
+  @objc public static let defaultAdSize: ADXiluSDK.ADXiluAdSize
+  @objc weak public var delegate: (any ADXiluSDK.ADXiluBaseAdDelegate)?
+  @objc public init(adPosId: Swift.String, adSize: ADXiluSDK.ADXiluAdSize)
+  @objc public func loadAd()
+  @objc public func showAd(in containerView: Any)
+  @objc deinit
+}
+extension ADXiluSDK.ADXiluBaseAd : ADXiluSDK.ADXiluBaseAdDelegate {
+  @objc dynamic public func xilu_AdDidClick(_ xiluAd: ADXiluSDK.ADXiluBaseAd, adInfo: ADXiluSDK.ADXiluAdInfo)
+  @objc dynamic public func xilu_AdDidReceive(_ xiluAd: ADXiluSDK.ADXiluBaseAd, adInfo: ADXiluSDK.ADXiluAdInfo)
+  @objc dynamic public func xilu_AdDidExpose(_ xiluAd: ADXiluSDK.ADXiluBaseAd, adInfo: ADXiluSDK.ADXiluAdInfo)
+  @objc dynamic public func xilu_AdDidClose(_ xiluAd: ADXiluSDK.ADXiluBaseAd, adInfo: ADXiluSDK.ADXiluAdInfo)
+  @objc dynamic public func xilu_AdDidFail(_ xiluAd: ADXiluSDK.ADXiluBaseAd, error: ADXiluSDK.ADXiluError)
+  @objc dynamic public func xilu_AdDidSkip(_ xiluAd: ADXiluSDK.ADXiluBaseAd, adInfo: ADXiluSDK.ADXiluAdInfo)
+  @objc dynamic public func xilu_AdTick(_ xiluAd: ADXiluSDK.ADXiluBaseAd, remainingTime: Foundation.TimeInterval)
+}
+@objc public class ADXiluInterstitialAd : ADXiluSDK.ADXiluBaseAd {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public init(adPosId: Swift.String, adSize: ADXiluSDK.ADXiluAdSize, rootVC: UIKit.UIViewController?)
+  #endif
+  @objc override public func loadAd()
+  @objc public func showAd(from viewController: UIKit.UIViewController)
+  @objc public func closeAd()
+  @objc public func p_release()
+  @objc deinit
+}
+extension BeiZiSDK.BeiZiInterstitial : ADXiluSDK.ADXiluLoadProtocol {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func xilu_showAd(view: Any?)
+  #endif
+}
+extension ADXiluSDK.ADXiluInterstitialAd : BeiZiSDK.BeiZiInterstitialDelegate {
+  @objc dynamic public func beiZi_interstitialDidClick(_ beiziInterstitial: BeiZiSDK.BeiZiInterstitial)
+  @objc dynamic public func beiZi_interstitialDidReceiveAd(_ beiziInterstitial: BeiZiSDK.BeiZiInterstitial)
+  @objc dynamic public func beiZi_interstitialDidDismissScreen(_ beiziInterstitial: BeiZiSDK.BeiZiInterstitial)
+  @objc dynamic public func beiZi_interstitialDidPresentScreen(_ beiziInterstitial: BeiZiSDK.BeiZiInterstitial)
+  @objc dynamic public func beiZi_interstitial(_ beiziInterstitial: BeiZiSDK.BeiZiInterstitial, didFailToLoadAdWithError error: BeiZiSDK.BeiZiRequestError)
+}
+@objc public enum ADXiluNativeAdType : Swift.Int {
+  case express = 0
+  case selfRender = 1
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public class ADXiluNativeAdInfo : ADXiluSDK.ADXiluAdInfo {
+  @objc final public let title: Swift.String
+  @objc final public let desc: Swift.String
+  @objc final public let actionText: Swift.String
+  @objc final public let iconUrl: Swift.String?
+  @objc final public let imageUrl: Swift.String?
+  @objc final public let videoUrl: Swift.String?
+  @objc final public let adType: ADXiluSDK.ADXiluNativeAdType
+  @objc final public let isMuted: Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public init(adId: Swift.String, platform: ADXiluSDK.ADXiluAdPlatform, title: Swift.String, desc: Swift.String, actionText: Swift.String, iconUrl: Swift.String? = nil, imageUrl: Swift.String? = nil, videoUrl: Swift.String? = nil, adType: ADXiluSDK.ADXiluNativeAdType = .express, isMuted: Swift.Bool = true)
+  #endif
+  required public init(from decoder: any Swift.Decoder) throws
+  override public func encode(to encoder: any Swift.Encoder) throws
+  @objc public var isExpress: Swift.Bool {
+    @objc get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public func getExpressAdView(in containerView: UIKit.UIView) -> UIKit.UIView?
+  #endif
+  @objc public func render(in containerView: UIKit.UIView)
+  @objc deinit
+}
+@objc public class ADXiluNativeAd : ADXiluSDK.ADXiluBaseAd {
+  @objc public var isTemplate: Swift.Bool
+  @objc public var containerView: UIKit.UIView?
+  @objc public var nativeViewController: UIKit.UIViewController?
+  @objc public var isMuted: Swift.Bool
+  @objc public init(adPosId: Swift.String, adSize: ADXiluSDK.ADXiluAdSize, count: Swift.Int)
+  @objc override public func loadAd()
+  @objc public func p_release()
+  @objc deinit
+}
+extension ADXiluSDK.ADXiluNativeAd : BeiZiSDK.BeiZiNativeExpressDelegate {
+  @objc dynamic public func beiZi_nativeExpressDidLoad(_ beiziNativeExpress: BeiZiSDK.BeiZiNativeExpress)
+  @objc dynamic public func beiZi_nativeExpressDidShow(_ beiziNativeExpress: BeiZiSDK.BeiZiNativeExpress)
+  @objc dynamic public func beiZi_nativeExpressDidClick(_ beiziNativeExpress: BeiZiSDK.BeiZiNativeExpress)
+  @objc dynamic public func beiZi_nativeExpressDislikeDidClick(_ beiziNativeExpress: BeiZiSDK.BeiZiNativeExpress)
+  @objc dynamic public func beiZi_nativeExpress(_ beiziNativeExpress: BeiZiSDK.BeiZiNativeExpress, didFailToLoadAdWithError error: BeiZiSDK.BeiZiRequestError)
+}
+extension ADXiluSDK.ADXiluNativeAd : BeiZiSDK.BeiZiUnifiedCustomDelegate {
+  @objc dynamic public func beiZi_unifiedDidClick(_ unifiedCustom: BeiZiSDK.BeiZiUnifiedCustom)
+  @objc dynamic public func beiZi_unifiedDidLoadSuccess(_ unifiedCustom: BeiZiSDK.BeiZiUnifiedCustom)
+  @objc dynamic public func beiZi_unifiedDidDismissScreen(_ unifiedCustom: BeiZiSDK.BeiZiUnifiedCustom)
+  @objc dynamic public func beiZi_unifiedDidPresentScreen(_ unifiedCustom: BeiZiSDK.BeiZiUnifiedCustom)
+  @objc dynamic public func beiZi_unifiedDidCloseDetailView(_ unifiedCustom: BeiZiSDK.BeiZiUnifiedCustom)
+  @objc dynamic public func beiZi_unified(_ unifiedCustom: BeiZiSDK.BeiZiUnifiedCustom, didFailToLoadAdWithError error: BeiZiSDK.BeiZiRequestError)
+}
+@objc public protocol ADXiluRewardVodAdDelegate : ADXiluSDK.ADXiluBaseAdDelegate {
+  @objc func xilu_AdVideoDidCache(_ rewardVodAd: ADXiluSDK.ADXiluBaseAd, adInfo: ADXiluSDK.ADXiluAdInfo)
+  @objc func xilu_AdVideoDidComplete(_ rewardVodAd: ADXiluSDK.ADXiluBaseAd, adInfo: ADXiluSDK.ADXiluAdInfo)
+  @objc func xilu_AdVideoDidError(_ rewardVodAd: ADXiluSDK.ADXiluBaseAd, adInfo: ADXiluSDK.ADXiluAdInfo, error: ADXiluSDK.ADXiluError)
+  @objc func xilu_AdDidReward(_ rewardVodAd: ADXiluSDK.ADXiluBaseAd, adInfo: ADXiluSDK.ADXiluAdInfo)
+}
+@objc public class ADXiluRewardVodAdInfo : ADXiluSDK.ADXiluAdInfo {
+  @objc final public let customData: Swift.String?
+  @objc final public let isMuted: Swift.Bool
+  @objc public var isExpired: Swift.Bool {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public init(adId: Swift.String, platform: ADXiluSDK.ADXiluAdPlatform, rewardName: Swift.String, rewardAmount: Swift.Int, customData: Swift.String? = nil, isMuted: Swift.Bool = false)
+  #endif
+  required public init(from decoder: any Swift.Decoder) throws
+  override public func encode(to encoder: any Swift.Encoder) throws
+  @objc public func checkExpired() -> Swift.Bool
+  @objc public func markAsExpired()
+  @objc deinit
+}
+extension ADXiluSDK.ADXiluRewardVodAd : BeiZiSDK.BeiZiRewardedVideoDelegate {
+  @objc dynamic public func beiZi_rewardedVideo(_ beiziRewardedVideo: BeiZiSDK.BeiZiRewardedVideo, didFailToLoadAdWithError error: BeiZiSDK.BeiZiRequestError)
+  @objc dynamic public func beiZi_rewardedVideoDidReceiveAd(_ beiziRewardedVideo: BeiZiSDK.BeiZiRewardedVideo)
+  @objc dynamic public func beiZi_rewardedVideoDidDismissScreen(_ beiziRewardedVideo: BeiZiSDK.BeiZiRewardedVideo)
+  @objc dynamic public func beiZi_rewardedVideoDidClick(_ beiziRewardedVideo: BeiZiSDK.BeiZiRewardedVideo)
+  @objc dynamic public func beiZi_rewardedVideoDidPlayEnd(_ beiziRewardedVideo: BeiZiSDK.BeiZiRewardedVideo)
+  @objc dynamic public func beiZi_rewardedVideoDidStartPlay(_ beiziRewardedVideo: BeiZiSDK.BeiZiRewardedVideo)
+  @objc dynamic public func beiZi_rewardedVideo(_ beiziRewardedVideo: BeiZiSDK.BeiZiRewardedVideo, didRewardUserWithReward reward: ObjectiveC.NSObject)
+}
+@objc public class ADXiluRewardVodAd : ADXiluSDK.ADXiluBaseAd {
+  @objc public var isMuted: Swift.Bool
+  @objc public var sceneId: Swift.String?
+  @objc weak public var videoDelegate: (any ADXiluSDK.ADXiluRewardVodAdDelegate)?
+  @objc public init(adPosId: Swift.String)
+  @objc override public func loadAd()
+  @objc public func showAd(from viewController: UIKit.UIViewController)
+  @objc public func closeAd()
+  @objc public func p_release()
+  @objc deinit
+}
+extension BeiZiSDK.BeiZiRewardedVideo : ADXiluSDK.ADXiluLoadProtocol {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func xilu_showAd(view: Any?)
+  #endif
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class ADXiluSDKManager : ObjectiveC.NSObject {
+  @objc public static let shared: ADXiluSDK.ADXiluSDKManager
+  @objc public var isInitialized: Swift.Bool {
+    get
+  }
+  @objc public var appId: Swift.String? {
+    get
+  }
+  @objc public var isDebugMode: Swift.Bool {
+    get
+  }
+  final public let networkTool: ADXiluSDK.ADNetworkTool
+  public var sdkResponse: ADXiluSDK.ADSDKResponse? {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public func initialize(appId: Swift.String, debug: Swift.Bool = false, completion: @escaping (Swift.Bool, Swift.String?) -> Swift.Void)
+  #endif
+  @objc public func getVersion() -> Swift.String
+  public func getAdPositions(for adType: Swift.String) -> [ADXiluSDK.ADAdPosition]
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getNetworkConfig(for platform: Swift.String) -> ADXiluSDK.ADNetworkItem?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getSDKConfig(for platform: Swift.String) -> ADXiluSDK.ADSDKConfigItem?
+  #endif
+  @objc deinit
+}
+@objc public enum ADXiluAdPlatform : Swift.Int {
+  case all = 0
+  case beizi = 1
+  case ms = 2
+  case gdt = 3
+  public var name: Swift.String {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public class ADXiluAdSize : ObjectiveC.NSObject {
+  @objc final public let width: CoreFoundation.CGFloat
+  @objc final public let height: CoreFoundation.CGFloat
+  @objc public init(width: CoreFoundation.CGFloat, height: CoreFoundation.CGFloat)
+  @objc public static var screenWidth: ADXiluSDK.ADXiluAdSize {
+    @objc get
+  }
+  @objc public static var screenSize: ADXiluSDK.ADXiluAdSize {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public class ADXiluError : ObjectiveC.NSObject, Swift.Error {
+  @objc public var code: Swift.Int
+  @objc public var message: Swift.String
+  @objc public init(code: Swift.Int, message: Swift.String)
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public class ADXiluAdInfo : ObjectiveC.NSObject, Swift.Codable {
+  required public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  @objc public var adId: Swift.String
+  @objc public var eCmp: Swift.Int
+  @objc public var rewardAmount: Swift.Int
+  @objc public var rewardName: Swift.String
+  @objc public var extraData: [Swift.String : Any]
+  @objc public var platform: ADXiluSDK.ADXiluAdPlatform
+  @objc public var isReady: Swift.Bool
+  @objc public init(adId: Swift.String, platform: ADXiluSDK.ADXiluAdPlatform, isReady: Swift.Bool = true)
+  @objc public func p_release()
+  @objc deinit
+}
+public protocol ADXiluLoadProtocol {
+  #if compiler(>=5.3) && $NonescapableTypes
+  func xilu_showAd(view: Any?)
+  #endif
+}
+@objc public enum ADXiluSplashAdStyle : Swift.Int {
+  case fullScreen = 0
+  case halfScreen = 1
+  case immersive = 2
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public protocol ADXiluSplashAdDelegate : ADXiluSDK.ADXiluBaseAdDelegate {
+  @objc optional func splashAdDidReceive(_ splashAd: ADXiluSDK.ADXiluSplashAd, adInfo: ADXiluSDK.ADXiluAdInfo)
+  @objc optional func splashAdDidExpose(_ splashAd: ADXiluSDK.ADXiluSplashAd, adInfo: ADXiluSDK.ADXiluAdInfo)
+  @objc optional func splashAdDidClick(_ splashAd: ADXiluSDK.ADXiluSplashAd, adInfo: ADXiluSDK.ADXiluAdInfo)
+  @objc optional func splashAdDidClose(_ splashAd: ADXiluSDK.ADXiluSplashAd, adInfo: ADXiluSDK.ADXiluAdInfo)
+  @objc optional func splashAdDidSkip(_ splashAd: ADXiluSDK.ADXiluSplashAd, adInfo: ADXiluSDK.ADXiluAdInfo)
+  @objc optional func splashAdDidFail(_ splashAd: ADXiluSDK.ADXiluSplashAd, error: ADXiluSDK.ADXiluError)
+  @objc optional func splashAdTick(_ splashAd: ADXiluSDK.ADXiluSplashAd, remainingTime: Foundation.TimeInterval)
+}
+@objc public class ADXiluSplashAd : ADXiluSDK.ADXiluBaseAd {
+  @objc final public let style: ADXiluSDK.ADXiluSplashAdStyle
+  @objc public var bottomView: UIKit.UIView?
+  @objc public init(adPosId: Swift.String, style: ADXiluSDK.ADXiluSplashAdStyle = .halfScreen, adSize: ADXiluSDK.ADXiluAdSize)
+  @objc override public func loadAd()
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc override public func showAd(in containerView: Any? = nil)
+  #endif
+  @objc public func closeAd()
+  @objc public func p_release()
+  @objc deinit
+}
+extension ADXiluSDK.ADXiluSplashAd : BeiZiSDK.BeiZiSplashDelegate {
+  @objc dynamic public func beiZi_splashBottomView() -> UIKit.UIView
+  @objc dynamic public func beiZi_splashDidClick(_ beiziSplash: BeiZiSDK.BeiZiSplash)
+  @objc dynamic public func beiZi_splashAdLifeTime(_ lifeTime: Swift.Int32)
+  @objc dynamic public func beiZi_splashDidLoadSuccess(_ beiziSplash: BeiZiSDK.BeiZiSplash)
+  @objc dynamic public func beiZi_splashDidPresentScreen(_ beiziSplash: BeiZiSDK.BeiZiSplash)
+  @objc dynamic public func beiZi_splashDidDismissScreen(_ beiziSplash: BeiZiSDK.BeiZiSplash)
+  @objc dynamic public func beiZi_splashWillDismissScreen(_ beiziSplash: BeiZiSDK.BeiZiSplash)
+  @objc dynamic public func beiZi_splashZoomOutDidClick(_ beiziSplash: BeiZiSDK.BeiZiSplash)
+  @objc dynamic public func beiZi_splashZoomOutDidClose(_ beiziSplash: BeiZiSDK.BeiZiSplash)
+  @objc dynamic public func beiZi_splash(_ beiziSplash: BeiZiSDK.BeiZiSplash, didFailToLoadAdWithError error: BeiZiSDK.BeiZiRequestError)
+}
+extension ADXiluSDK.ADXiluSplashAd : GDTMobSDK.GDTSplashAdDelegate {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc dynamic public func splashAdSuccessPresentScreen(_ splashAd: GDTMobSDK.GDTSplashAd!)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc dynamic public func splashAdDidLoad(_ splashAd: GDTMobSDK.GDTSplashAd!)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc dynamic public func splashAdFail(toPresent splashAd: GDTMobSDK.GDTSplashAd!, withError error: (any Swift.Error)!)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc dynamic public func splashAdExposured(_ splashAd: GDTMobSDK.GDTSplashAd!)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc dynamic public func splashAdClicked(_ splashAd: GDTMobSDK.GDTSplashAd!)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc dynamic public func splashAdApplicationWillEnterBackground(_ splashAd: GDTMobSDK.GDTSplashAd!)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc dynamic public func splashAdWillClosed(_ splashAd: GDTMobSDK.GDTSplashAd!)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc dynamic public func splashAdClosed(_ splashAd: GDTMobSDK.GDTSplashAd!)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc dynamic public func splashAdDidPresentFullScreenModal(_ splashAd: GDTMobSDK.GDTSplashAd!)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc dynamic public func splashAdWillDismissFullScreenModal(_ splashAd: GDTMobSDK.GDTSplashAd!)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc dynamic public func splashAdDidDismissFullScreenModal(_ splashAd: GDTMobSDK.GDTSplashAd!)
+  #endif
+}
+extension BeiZiSDK.BeiZiSplash : ADXiluSDK.ADXiluLoadProtocol {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func xilu_showAd(view: Any? = nil)
+  #endif
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+}
+extension GDTMobSDK.GDTSplashAd : ADXiluSDK.ADXiluLoadProtocol {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func xilu_showAd(view: Any? = nil)
+  #endif
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+}
+extension Foundation.NSError {
+  public func fullInfo() -> Swift.String
+}
+extension Foundation.NSDictionary {
+  @objc dynamic public func jsonString() -> Swift.String
+}
+extension ObjectiveC.NSObject {
+  public func toJSONString() -> Swift.String
+}
+public func printJSON(_ object: Any)
+@objc @_inheritsConvenienceInitializers public class PHCommonKeyChain : ObjectiveC.NSObject {
+  public static func ph_setPassword3(_ password: Swift.String, _ serviceName: Swift.String, _ account: Swift.String) -> Swift.Bool
+  @objc override dynamic public init()
+  @objc deinit
+}
+#if compiler(>=5.3) && $NonescapableTypes
+public var XLKeywindow: UIKit.UIWindow? {
+  get
+}
+#endif
+public enum XLNotificationKey : Swift.String {
+  case networkChange
+  case loginSuccessAndPageClose
+  public var name: Foundation.Notification.Name {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+extension UIKit.UIColor {
+  convenience public init(_ hex: Swift.UInt, _ alpha: CoreFoundation.CGFloat = 1.0)
+}
+extension UIKit.UIColor {
+  public static var mainColor: UIKit.UIColor {
+    get
+  }
+  public static var mainDisableColor: UIKit.UIColor {
+    get
+  }
+  public static var mainBackgroundColor: UIKit.UIColor {
+    get
+  }
+  public static var disableEditColor: UIKit.UIColor {
+    get
+  }
+  public static var mainBlack: UIKit.UIColor {
+    get
+  }
+  public static var wrongRed: UIKit.UIColor {
+    get
+  }
+  public static var wrongBgRed: UIKit.UIColor {
+    get
+  }
+  public static var gray8A8A8C: UIKit.UIColor {
+    get
+  }
+  public static var grayC8C9CC: UIKit.UIColor {
+    get
+  }
+  public static var grayE6E6EB: UIKit.UIColor {
+    get
+  }
+  public static var gray646566: UIKit.UIColor {
+    get
+  }
+  public static var dividingColor: UIKit.UIColor {
+    get
+  }
+}
+extension UIKit.UIDevice {
+  @_Concurrency.MainActor @preconcurrency public static var ad_device_id: Swift.String {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public static var ad_currentSystemName: Swift.String {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public static var ad_deviceType: Swift.String {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public static var ad_currentDeviceName: Swift.String {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public static var ad_appVersion: Swift.String {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public static var mobileCarrier: Swift.String {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public static var ad_appName: Swift.String {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public static var ad_appBuildVersion: Swift.String {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public static var ad_currentSystemVersion: Swift.String {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public static var ad_deviceUUid: Swift.String {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public static var idfv: Swift.String {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public static var idfa: Swift.String {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public static var uuid: Swift.String {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public static var ad_screen: Swift.String {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public static var ad_screen_width: CoreFoundation.CGFloat {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public static var ad_screen_height: CoreFoundation.CGFloat {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public static var ad_timez: Swift.String {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public static var ad_isProxy: Swift.Bool {
+    get
+  }
+}
+extension UIKit.UIDevice {
+  @_Concurrency.MainActor @preconcurrency public static var ad_networkType: Swift.String {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public static func ad_wifiName() -> Swift.String
+  @_Concurrency.MainActor @preconcurrency public static func ad_wiftMac() -> Swift.String
+}
+@objc @_inheritsConvenienceInitializers public class XLNetworkMonitor : ObjectiveC.NSObject {
+  public static let shared: ADXiluSDK.XLNetworkMonitor
+  public var isNetworkEnable: Swift.Bool
+  public var isWiFi: Swift.Bool
+  public func startMonitor()
+  public func stopMonitor()
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class XLSDKLogTool {
+  public enum LogLevel : Swift.String, Swift.CaseIterable {
+    case debug
+    case info
+    case warning
+    case error
+    #if compiler(>=5.3) && $NonescapableTypes
+    public init?(rawValue: Swift.String)
+    #endif
+    public typealias AllCases = [ADXiluSDK.XLSDKLogTool.LogLevel]
+    public typealias RawValue = Swift.String
+    nonisolated public static var allCases: [ADXiluSDK.XLSDKLogTool.LogLevel] {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public static var isEnabled: Swift.Bool
+  public static var showTimestamp: Swift.Bool
+  public static var showLogLevel: Swift.Bool
+  public static var showThreadInfo: Swift.Bool
+  public static func log(_ items: Any..., level: ADXiluSDK.XLSDKLogTool.LogLevel = .debug, file: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line)
+  public static func debug(_ items: Any..., file: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line)
+  public static func info(_ items: Any..., file: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line)
+  public static func warning(_ items: Any..., file: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line)
+  public static func error(_ items: Any..., file: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line)
+  @objc deinit
+}
+public func sdkLog(_ items: Any..., separator: Swift.String = " ", terminator: Swift.String = "\n")
+public func sdkDebug(_ items: Any..., file: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line)
+public func sdkInfo(_ items: Any..., file: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line)
+public func sdkWarning(_ items: Any..., file: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line)
+public func sdkError(_ items: Any..., file: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line)
+extension ADXiluSDK.ADHTTPMethod : Swift.Equatable {}
+extension ADXiluSDK.ADHTTPMethod : Swift.Hashable {}
+extension ADXiluSDK.ADHTTPMethod : Swift.RawRepresentable {}
+extension ADXiluSDK.ADNetworkStatus : Swift.Equatable {}
+extension ADXiluSDK.ADNetworkStatus : Swift.Hashable {}
+extension ADXiluSDK.ADNetworkStatus : Swift.RawRepresentable {}
+extension ADXiluSDK.ADRequestStatus : Swift.Equatable {}
+extension ADXiluSDK.ADRequestStatus : Swift.Hashable {}
+extension ADXiluSDK.ADRequestStatus : Swift.RawRepresentable {}
+extension ADXiluSDK.ADNetworkError : Swift.Equatable {}
+extension ADXiluSDK.ADNetworkError : Swift.Hashable {}
+extension ADXiluSDK.ADNetworkError : Swift.RawRepresentable {}
+extension ADXiluSDK.ADXiluNativeAdType : Swift.Equatable {}
+extension ADXiluSDK.ADXiluNativeAdType : Swift.Hashable {}
+extension ADXiluSDK.ADXiluNativeAdType : Swift.RawRepresentable {}
+extension ADXiluSDK.ADXiluAdPlatform : Swift.Equatable {}
+extension ADXiluSDK.ADXiluAdPlatform : Swift.Hashable {}
+extension ADXiluSDK.ADXiluAdPlatform : Swift.RawRepresentable {}
+extension ADXiluSDK.ADXiluSplashAdStyle : Swift.Equatable {}
+extension ADXiluSDK.ADXiluSplashAdStyle : Swift.Hashable {}
+extension ADXiluSDK.ADXiluSplashAdStyle : Swift.RawRepresentable {}
+extension ADXiluSDK.XLNotificationKey : Swift.Equatable {}
+extension ADXiluSDK.XLNotificationKey : Swift.Hashable {}
+extension ADXiluSDK.XLNotificationKey : Swift.RawRepresentable {}
+extension ADXiluSDK.XLSDKLogTool.LogLevel : Swift.Equatable {}
+extension ADXiluSDK.XLSDKLogTool.LogLevel : Swift.Hashable {}
+extension ADXiluSDK.XLSDKLogTool.LogLevel : Swift.RawRepresentable {}

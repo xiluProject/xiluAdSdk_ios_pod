@@ -1,0 +1,11 @@
+framework module ADXiluSDK {
+  umbrella header "ADXiluSDK-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module ADXiluSDK.Swift {
+  header "ADXiluSDK-Swift.h"
+  requires objc
+}
