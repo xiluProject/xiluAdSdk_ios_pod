@@ -26805,7 +26805,7 @@
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Tool\/ADDeviceInfoTool.swift",
       "kind": "StringLiteral",
-      "offset": 5148,
+      "offset": 6073,
       "length": 2,
       "value": "\"\""
     },
@@ -28144,21 +28144,21 @@
       "kind": "FloatLiteral",
       "offset": 2101,
       "length": 4,
-      "value": "30.0"
+      "value": "10.0"
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADNetworkTool.swift",
       "kind": "IntegerLiteral",
       "offset": 2139,
       "length": 1,
-      "value": "3"
+      "value": "2"
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADNetworkTool.swift",
       "kind": "FloatLiteral",
       "offset": 2183,
       "length": 3,
-      "value": "1.0"
+      "value": "0.5"
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADNetworkTool.swift",
@@ -28184,7 +28184,7 @@
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADNetworkTool.swift",
       "kind": "StringLiteral",
-      "offset": 11270,
+      "offset": 11089,
       "length": 2,
       "value": "\"\""
     },
@@ -28198,14 +28198,14 @@
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADSDKInitCallback.swift",
       "kind": "BooleanLiteral",
-      "offset": 4732,
+      "offset": 4741,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADSDKInitCallback.swift",
       "kind": "BooleanLiteral",
-      "offset": 5254,
+      "offset": 5263,
       "length": 5,
       "value": "false"
     },
@@ -28604,189 +28604,189 @@
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 5940,
+      "offset": 6306,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 5978,
+      "offset": 6344,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 6008,
+      "offset": 6374,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 6041,
+      "offset": 6407,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 6753,
+      "offset": 7119,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "StringLiteral",
-      "offset": 7347,
+      "offset": 7713,
       "length": 49,
       "value": "\"ADXiluError(code: \""
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "StringLiteral",
-      "offset": 7373,
+      "offset": 7739,
       "length": 1,
       "value": "\", message: \""
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "StringLiteral",
-      "offset": 7394,
+      "offset": 7760,
       "length": 1,
       "value": "\")\""
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 7459,
+      "offset": 7825,
       "length": 6,
       "value": "-10001"
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "StringLiteral",
-      "offset": 7476,
+      "offset": 7842,
       "length": 31,
       "value": "\"未知错误, 请稍后重试\""
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 7558,
+      "offset": 7924,
       "length": 6,
       "value": "-10002"
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "StringLiteral",
-      "offset": 7575,
+      "offset": 7941,
       "length": 31,
       "value": "\"网络异常, 请稍后重试\""
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 7658,
+      "offset": 8024,
       "length": 6,
       "value": "-10003"
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "StringLiteral",
-      "offset": 7675,
+      "offset": 8041,
       "length": 41,
       "value": "\"广告配置错误，请检查后重试\""
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 7769,
+      "offset": 8135,
       "length": 6,
       "value": "-10004"
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "StringLiteral",
-      "offset": 7786,
+      "offset": 8152,
       "length": 50,
       "value": "\"广告已释放，请重新加载后再次展示\""
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 7890,
+      "offset": 8256,
       "length": 6,
       "value": "-10005"
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "StringLiteral",
-      "offset": 7907,
+      "offset": 8273,
       "length": 41,
       "value": "\"广告未加载完成，请稍后重试\""
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 7998,
+      "offset": 8364,
       "length": 6,
       "value": "-10006"
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "StringLiteral",
-      "offset": 8015,
+      "offset": 8381,
       "length": 37,
       "value": "\"广告加载失败, 请稍后重试\""
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "StringLiteral",
-      "offset": 9778,
+      "offset": 10144,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 9814,
+      "offset": 10180,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 9858,
+      "offset": 10224,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "StringLiteral",
-      "offset": 9903,
+      "offset": 10269,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "Dictionary",
-      "offset": 9955,
+      "offset": 10321,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 10059,
+      "offset": 10425,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 10152,
+      "offset": 10518,
       "length": 4,
       "value": "true"
     },
@@ -28816,7 +28816,7 @@
       "kind": "IntegerLiteral",
       "offset": 1795,
       "length": 1,
-      "value": "0"
+      "value": "5"
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Ads\/ADXiluSplashAd.swift",
@@ -28841,57 +28841,71 @@
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Ads\/ADXiluSplashAd.swift",
+      "kind": "StringLiteral",
+      "offset": 2187,
+      "length": 25,
+      "value": "\"com.xilu.ad.splash.load\""
+    },
+    {
+      "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Ads\/ADXiluSplashAd.swift",
+      "kind": "StringLiteral",
+      "offset": 2392,
+      "length": 29,
+      "value": "\"com.xilu.ad.splash.callback\""
+    },
+    {
+      "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Ads\/ADXiluSplashAd.swift",
       "kind": "Dictionary",
-      "offset": 2389,
+      "offset": 2800,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Ads\/ADXiluSplashAd.swift",
       "kind": "BooleanLiteral",
-      "offset": 2559,
+      "offset": 2970,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Ads\/ADXiluSplashAd.swift",
       "kind": "StringLiteral",
-      "offset": 2729,
+      "offset": 3140,
       "length": 22,
       "value": "\"com.xilu.atomic.bool\""
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Ads\/ADXiluSplashAd.swift",
       "kind": "StringLiteral",
-      "offset": 31770,
+      "offset": 32494,
       "length": 52,
       "value": "\"BeiZiSplash { spaceID: \""
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Ads\/ADXiluSplashAd.swift",
       "kind": "StringLiteral",
-      "offset": 31804,
+      "offset": 32528,
       "length": 1,
       "value": "\", ecpm: \""
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Ads\/ADXiluSplashAd.swift",
       "kind": "StringLiteral",
-      "offset": 31819,
+      "offset": 32543,
       "length": 1,
       "value": "\" }\""
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Ads\/ADXiluSplashAd.swift",
       "kind": "StringLiteral",
-      "offset": 32265,
+      "offset": 32989,
       "length": 32,
       "value": "\"GDTSplashAd {ecpm: \""
     },
     {
       "filePath": "\/Users\/zyn\/XiluSdk-ios\/ADXiluSDK\/Classes\/Ads\/ADXiluSplashAd.swift",
       "kind": "StringLiteral",
-      "offset": 32294,
+      "offset": 33018,
       "length": 1,
       "value": "\" }\""
     },
