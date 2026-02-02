@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'xiluAdSdk'
-  s.version          = '1.0.7'
+  s.version          = '1.0.8'
   s.summary          = 'ADXilu iOS SDK - 广告聚合SDK'
 
   s.description      = <<-DESC
@@ -23,16 +23,15 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '12.2'
   s.frameworks = "UIKit", "Foundation", "AVFoundation", "CoreLocation", "SystemConfiguration", "AdSupport", "CoreTelephony"
  
-  s.swift_version = "5.0"
+  s.swift_versions = ['5.0', '5.1', '5.2', '5.3', '5.4', '5.5', '5.6', '5.7', '5.8', '5.9', '5.10','6.0','6.1','6.2']
   s.vendored_frameworks = "ADXiluSDK/*.framework"
   # Swift 库必须开启模块化
   s.pod_target_xcconfig = {
     'DEFINES_MODULE' => 'YES', # 核心：生成模块，否则其他项目无法导入
-    'SWIFT_VERSION' => '5.0'
+    'SWIFT_VERSION' => '5.0',
+    'SKIP_INSTALL' => 'NO'
   }
-#s.dependency  'ObjectMapper'
   s.dependency  'CryptoSwift'
-  #s.dependency   'SnapKit'
   s.dependency   'GDTMobSDK', '4.15.65'
   s.dependency  'BeiZiSDK-iOS', '4.90.7.0'
   s.dependency  'MSMobAdSDK/MS', '2.7.7.3'
