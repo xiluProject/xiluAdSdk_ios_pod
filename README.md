@@ -30,7 +30,7 @@ xiluAdSdk是一个支持多平台广告聚合的iOS SDK，提供统一的API接�
 ## 系统要求
 
 - iOS 12.2+
-- Xcode 26.2
+- Xcode 16.2
 - Swift 5.0+
 - CocoaPods 1.10.0+
 
