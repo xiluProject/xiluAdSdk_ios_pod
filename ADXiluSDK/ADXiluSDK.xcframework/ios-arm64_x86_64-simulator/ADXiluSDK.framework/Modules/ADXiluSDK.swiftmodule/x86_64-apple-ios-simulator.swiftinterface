@@ -21,11 +21,11 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 public protocol ADAdaptorProtocol {
-  func initialize()
+  func initialize(completion: @escaping (Swift.Bool, Swift.String?) -> Swift.Void)
   func getVersion() -> Swift.String
 }
 @objc @_inheritsConvenienceInitializers public class ADAdaptor : ObjectiveC.NSObject, ADXiluSDK.ADAdaptorProtocol {
-  public func initialize()
+  public func initialize(completion: @escaping (Swift.Bool, Swift.String?) -> Swift.Void)
   public func getVersion() -> Swift.String
   public static let shared: ADXiluSDK.ADAdaptor
   @objc override dynamic public init()
@@ -336,7 +336,7 @@ extension ADXiluSDK.ADXiluBannerAd : GDTMobSDK.GDTUnifiedBannerViewDelegate {
   @objc dynamic public func unifiedBannerViewDidLoad(_ bannerView: GDTMobSDK.GDTUnifiedBannerView)
   @objc dynamic public func unifiedBannerViewFailed(toLoad bannerView: GDTMobSDK.GDTUnifiedBannerView, error: any Swift.Error)
   public func bannerViewWillLeaveApplication(_ bannerView: GDTMobSDK.GDTUnifiedBannerView!)
-  public func bannerViewWillClose(_ bannerView: GDTMobSDK.GDTUnifiedBannerView!)
+  @objc dynamic public func unifiedBannerViewWillClose(_ bannerView: GDTMobSDK.GDTUnifiedBannerView)
   public func bannerViewWillExposure(_ bannerView: GDTMobSDK.GDTUnifiedBannerView!)
   public func bannerViewClicked(_ bannerView: GDTMobSDK.GDTUnifiedBannerView!)
 }
@@ -635,8 +635,8 @@ extension ADXiluSDK.ADXiluSplashAd : BeiZiSDK.BeiZiSplashDelegate {
   @objc dynamic public func beiZi_splashAdLifeTime(_ lifeTime: Swift.Int32)
   @objc dynamic public func beiZi_splashDidLoadSuccess(_ beiziSplash: BeiZiSDK.BeiZiSplash)
   @objc dynamic public func beiZi_splashDidPresentScreen(_ beiziSplash: BeiZiSDK.BeiZiSplash)
-  @objc dynamic public func beiZi_splashDidDismissScreen(_ beiziSplash: BeiZiSDK.BeiZiSplash)
   @objc dynamic public func beiZi_splashWillDismissScreen(_ beiziSplash: BeiZiSDK.BeiZiSplash)
+  @objc dynamic public func beiZi_splashDidDismissScreen(_ beiziSplash: BeiZiSDK.BeiZiSplash)
   @objc dynamic public func beiZi_splashZoomOutDidClick(_ beiziSplash: BeiZiSDK.BeiZiSplash)
   @objc dynamic public func beiZi_splashZoomOutDidClose(_ beiziSplash: BeiZiSDK.BeiZiSplash)
   @objc dynamic public func beiZi_splash(_ beiziSplash: BeiZiSDK.BeiZiSplash, didFailToLoadAdWithError error: BeiZiSDK.BeiZiRequestError)

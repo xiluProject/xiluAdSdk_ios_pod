@@ -431,6 +431,7 @@ SWIFT_CLASS("_TtC9ADXiluSDK14ADXiluBannerAd")
 @interface ADXiluBannerAd (SWIFT_EXTENSION(ADXiluSDK)) <GDTUnifiedBannerViewDelegate>
 - (void)unifiedBannerViewDidLoad:(GDTUnifiedBannerView * _Nonnull)bannerView;
 - (void)unifiedBannerViewFailedToLoad:(GDTUnifiedBannerView * _Nonnull)bannerView error:(NSError * _Nonnull)error;
+- (void)unifiedBannerViewWillClose:(GDTUnifiedBannerView * _Nonnull)bannerView;
 @end
 
 
@@ -762,8 +763,8 @@ SWIFT_CLASS("_TtC9ADXiluSDK14ADXiluSplashAd")
 - (void)BeiZi_splashAdLifeTime:(int32_t)lifeTime;
 - (void)BeiZi_splashDidLoadSuccess:(BeiZiSplash * _Nonnull)beiziSplash;
 - (void)BeiZi_splashDidPresentScreen:(BeiZiSplash * _Nonnull)beiziSplash;
-- (void)BeiZi_splashDidDismissScreen:(BeiZiSplash * _Nonnull)beiziSplash;
 - (void)BeiZi_splashWillDismissScreen:(BeiZiSplash * _Nonnull)beiziSplash;
+- (void)BeiZi_splashDidDismissScreen:(BeiZiSplash * _Nonnull)beiziSplash;
 - (void)BeiZi_splashZoomOutDidClick:(BeiZiSplash * _Nonnull)beiziSplash;
 - (void)BeiZi_splashZoomOutDidClose:(BeiZiSplash * _Nonnull)beiziSplash;
 - (void)BeiZi_splash:(BeiZiSplash * _Nonnull)beiziSplash didFailToLoadAdWithError:(BeiZiRequestError * _Nonnull)error;
