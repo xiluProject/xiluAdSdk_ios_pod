@@ -446,6 +446,8 @@ SWIFT_PROTOCOL("_TtP9ADXiluSDK20ADXiluBaseAdDelegate_")
 - (void)xilu_AdDidExpose:(ADXiluBaseAd * _Nonnull)xiluAd adInfo:(ADXiluAdInfo * _Nonnull)adInfo;
 /// 广告点击
 - (void)xilu_AdDidClick:(ADXiluBaseAd * _Nonnull)xiluAd adInfo:(ADXiluAdInfo * _Nonnull)adInfo;
+/// 广告将要关闭
+- (void)xilu_AdWillClose:(ADXiluBaseAd * _Nonnull)xiluAd adInfo:(ADXiluAdInfo * _Nonnull)adInfo;
 /// 广告关闭
 - (void)xilu_AdDidClose:(ADXiluBaseAd * _Nonnull)xiluAd adInfo:(ADXiluAdInfo * _Nonnull)adInfo;
 /// 广告跳过
@@ -461,6 +463,7 @@ SWIFT_PROTOCOL("_TtP9ADXiluSDK20ADXiluBaseAdDelegate_")
 - (void)xilu_AdDidClick:(ADXiluBaseAd * _Nonnull)xiluAd adInfo:(ADXiluAdInfo * _Nonnull)adInfo;
 - (void)xilu_AdDidReceive:(ADXiluBaseAd * _Nonnull)xiluAd adInfo:(ADXiluAdInfo * _Nonnull)adInfo;
 - (void)xilu_AdDidExpose:(ADXiluBaseAd * _Nonnull)xiluAd adInfo:(ADXiluAdInfo * _Nonnull)adInfo;
+- (void)xilu_AdWillClose:(ADXiluBaseAd * _Nonnull)xiluAd adInfo:(ADXiluAdInfo * _Nonnull)adInfo;
 - (void)xilu_AdDidClose:(ADXiluBaseAd * _Nonnull)xiluAd adInfo:(ADXiluAdInfo * _Nonnull)adInfo;
 - (void)xilu_AdDidFail:(ADXiluBaseAd * _Nonnull)xiluAd error:(ADXiluError * _Nonnull)error;
 - (void)xilu_AdDidSkip:(ADXiluBaseAd * _Nonnull)xiluAd adInfo:(ADXiluAdInfo * _Nonnull)adInfo;
@@ -1305,6 +1308,8 @@ SWIFT_PROTOCOL("_TtP9ADXiluSDK20ADXiluBaseAdDelegate_")
 - (void)xilu_AdDidExpose:(ADXiluBaseAd * _Nonnull)xiluAd adInfo:(ADXiluAdInfo * _Nonnull)adInfo;
 /// 广告点击
 - (void)xilu_AdDidClick:(ADXiluBaseAd * _Nonnull)xiluAd adInfo:(ADXiluAdInfo * _Nonnull)adInfo;
+/// 广告将要关闭
+- (void)xilu_AdWillClose:(ADXiluBaseAd * _Nonnull)xiluAd adInfo:(ADXiluAdInfo * _Nonnull)adInfo;
 /// 广告关闭
 - (void)xilu_AdDidClose:(ADXiluBaseAd * _Nonnull)xiluAd adInfo:(ADXiluAdInfo * _Nonnull)adInfo;
 /// 广告跳过
@@ -1320,6 +1325,7 @@ SWIFT_PROTOCOL("_TtP9ADXiluSDK20ADXiluBaseAdDelegate_")
 - (void)xilu_AdDidClick:(ADXiluBaseAd * _Nonnull)xiluAd adInfo:(ADXiluAdInfo * _Nonnull)adInfo;
 - (void)xilu_AdDidReceive:(ADXiluBaseAd * _Nonnull)xiluAd adInfo:(ADXiluAdInfo * _Nonnull)adInfo;
 - (void)xilu_AdDidExpose:(ADXiluBaseAd * _Nonnull)xiluAd adInfo:(ADXiluAdInfo * _Nonnull)adInfo;
+- (void)xilu_AdWillClose:(ADXiluBaseAd * _Nonnull)xiluAd adInfo:(ADXiluAdInfo * _Nonnull)adInfo;
 - (void)xilu_AdDidClose:(ADXiluBaseAd * _Nonnull)xiluAd adInfo:(ADXiluAdInfo * _Nonnull)adInfo;
 - (void)xilu_AdDidFail:(ADXiluBaseAd * _Nonnull)xiluAd error:(ADXiluError * _Nonnull)error;
 - (void)xilu_AdDidSkip:(ADXiluBaseAd * _Nonnull)xiluAd adInfo:(ADXiluAdInfo * _Nonnull)adInfo;
