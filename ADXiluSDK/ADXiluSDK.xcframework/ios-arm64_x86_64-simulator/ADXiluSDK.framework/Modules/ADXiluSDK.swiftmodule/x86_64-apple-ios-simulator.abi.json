@@ -30465,35 +30465,35 @@
     {
       "filePath": "\/Users\/rohoninfosh\/XiluSdk-ios\/ADXiluSDK\/Classes\/Ads\/ADXiluSplashAd.swift",
       "kind": "StringLiteral",
-      "offset": 31780,
+      "offset": 32235,
       "length": 52,
       "value": "\"BeiZiSplash { spaceID: \""
     },
     {
       "filePath": "\/Users\/rohoninfosh\/XiluSdk-ios\/ADXiluSDK\/Classes\/Ads\/ADXiluSplashAd.swift",
       "kind": "StringLiteral",
-      "offset": 31814,
+      "offset": 32269,
       "length": 1,
       "value": "\", ecpm: \""
     },
     {
       "filePath": "\/Users\/rohoninfosh\/XiluSdk-ios\/ADXiluSDK\/Classes\/Ads\/ADXiluSplashAd.swift",
       "kind": "StringLiteral",
-      "offset": 31829,
+      "offset": 32284,
       "length": 1,
       "value": "\" }\""
     },
     {
       "filePath": "\/Users\/rohoninfosh\/XiluSdk-ios\/ADXiluSDK\/Classes\/Ads\/ADXiluSplashAd.swift",
       "kind": "StringLiteral",
-      "offset": 32275,
+      "offset": 32730,
       "length": 32,
       "value": "\"GDTSplashAd {ecpm: \""
     },
     {
       "filePath": "\/Users\/rohoninfosh\/XiluSdk-ios\/ADXiluSDK\/Classes\/Ads\/ADXiluSplashAd.swift",
       "kind": "StringLiteral",
-      "offset": 32304,
+      "offset": 32759,
       "length": 1,
       "value": "\" }\""
     },
