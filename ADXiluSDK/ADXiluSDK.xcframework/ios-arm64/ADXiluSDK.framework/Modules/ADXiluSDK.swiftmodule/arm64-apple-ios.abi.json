@@ -30331,50 +30331,64 @@
     },
     {
       "filePath": "\/Users\/rohoninfosh\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8468,
+      "length": 6,
+      "value": "-10007"
+    },
+    {
+      "filePath": "\/Users\/rohoninfosh\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "StringLiteral",
-      "offset": 10145,
+      "offset": 8485,
+      "length": 56,
+      "value": "\"没有找到符合价格要求或体验要求的广告\""
+    },
+    {
+      "filePath": "\/Users\/rohoninfosh\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
+      "kind": "StringLiteral",
+      "offset": 10267,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/rohoninfosh\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 10181,
+      "offset": 10303,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/rohoninfosh\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 10225,
+      "offset": 10347,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/rohoninfosh\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "StringLiteral",
-      "offset": 10270,
+      "offset": 10392,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/rohoninfosh\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "Dictionary",
-      "offset": 10322,
+      "offset": 10444,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/rohoninfosh\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 10426,
+      "offset": 10548,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/rohoninfosh\/XiluSdk-ios\/ADXiluSDK\/Classes\/Core\/ADXiluSDKManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 10519,
+      "offset": 10641,
       "length": 4,
       "value": "true"
     },
@@ -30465,35 +30479,35 @@
     {
       "filePath": "\/Users\/rohoninfosh\/XiluSdk-ios\/ADXiluSDK\/Classes\/Ads\/ADXiluSplashAd.swift",
       "kind": "StringLiteral",
-      "offset": 32235,
+      "offset": 32247,
       "length": 52,
       "value": "\"BeiZiSplash { spaceID: \""
     },
     {
       "filePath": "\/Users\/rohoninfosh\/XiluSdk-ios\/ADXiluSDK\/Classes\/Ads\/ADXiluSplashAd.swift",
       "kind": "StringLiteral",
-      "offset": 32269,
+      "offset": 32281,
       "length": 1,
       "value": "\", ecpm: \""
     },
     {
       "filePath": "\/Users\/rohoninfosh\/XiluSdk-ios\/ADXiluSDK\/Classes\/Ads\/ADXiluSplashAd.swift",
       "kind": "StringLiteral",
-      "offset": 32284,
+      "offset": 32296,
       "length": 1,
       "value": "\" }\""
     },
     {
       "filePath": "\/Users\/rohoninfosh\/XiluSdk-ios\/ADXiluSDK\/Classes\/Ads\/ADXiluSplashAd.swift",
       "kind": "StringLiteral",
-      "offset": 32730,
+      "offset": 32742,
       "length": 32,
       "value": "\"GDTSplashAd {ecpm: \""
     },
     {
       "filePath": "\/Users\/rohoninfosh\/XiluSdk-ios\/ADXiluSDK\/Classes\/Ads\/ADXiluSplashAd.swift",
       "kind": "StringLiteral",
-      "offset": 32759,
+      "offset": 32771,
       "length": 1,
       "value": "\" }\""
     },
