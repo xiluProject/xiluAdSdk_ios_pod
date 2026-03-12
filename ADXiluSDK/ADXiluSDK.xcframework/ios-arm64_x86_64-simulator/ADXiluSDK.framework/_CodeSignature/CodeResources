@@ -18,11 +18,11 @@
 		</data>
 		<key>Modules/ADXiluSDK.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		JxIf56L3TyzDx7Ul1hk62cI4tgI=
+		Pbjti3g9Mire7m1j7sgXrlwviu4=
 		</data>
 		<key>Modules/ADXiluSDK.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		fn/G8v/Wejq2xQHYgDFCK8itPVI=
+		bb+pm76cTExbaV9g2ddIU0iOLeo=
 		</data>
 		<key>Modules/ADXiluSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -97,22 +97,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			JxIf56L3TyzDx7Ul1hk62cI4tgI=
+			Pbjti3g9Mire7m1j7sgXrlwviu4=
 			</data>
 			<key>hash2</key>
 			<data>
-			IXMV3Xz6CXlHQQREwHVVQoK3GlvvQ22/XWoJiogBd4I=
+			ED1qhs6+NQ9HKwbFg57eJvU2t05X2nb0PdMVX48dHMo=
 			</data>
 		</dict>
 		<key>Modules/ADXiluSDK.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			fn/G8v/Wejq2xQHYgDFCK8itPVI=
+			bb+pm76cTExbaV9g2ddIU0iOLeo=
 			</data>
 			<key>hash2</key>
 			<data>
-			o6SNzEVNCRJZru0gw/TzVv8RKe6LeFitxk78WSogLYs=
+			/KRfHE+XTsH2B7YrOnYp6aO2gGg8cLc6YL6OCrVZL60=
 			</data>
 		</dict>
 		<key>Modules/ADXiluSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
