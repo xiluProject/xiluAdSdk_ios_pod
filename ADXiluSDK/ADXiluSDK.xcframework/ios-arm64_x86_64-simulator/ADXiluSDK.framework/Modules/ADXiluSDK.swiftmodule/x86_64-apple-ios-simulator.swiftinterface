@@ -537,11 +537,14 @@ extension ADXiluSDK.ADXiluRewardVodAd : GDTMobSDK.GDTRewardedVideoAdDelegate {
   @objc public var isDebugMode: Swift.Bool {
     get
   }
+  @objc public var isUseSDKAudioSessionSetting: Swift.Bool {
+    get
+  }
   final public let networkTool: ADXiluSDK.ADNetworkTool
   public var sdkResponse: ADXiluSDK.ADSDKResponse? {
     get
   }
-  @objc public func initialize(appId: Swift.String, debug: Swift.Bool = false, completion: @escaping (Swift.Bool, Swift.String?) -> Swift.Void)
+  @objc public func initialize(appId: Swift.String, debug: Swift.Bool = false, useSDKAudioSessionSetting: Swift.Bool = false, completion: @escaping (Swift.Bool, Swift.String?) -> Swift.Void)
   @objc public func getVersion() -> Swift.String
   public func getAdPositions(for adType: Swift.String) -> [ADXiluSDK.ADAdPosition]
   public func getNetworkConfig(for platform: Swift.String) -> ADXiluSDK.ADNetworkItem?

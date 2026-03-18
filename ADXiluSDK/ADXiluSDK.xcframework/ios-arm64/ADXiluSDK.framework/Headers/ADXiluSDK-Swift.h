@@ -721,6 +721,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ADXiluSDKMan
 @property (nonatomic, readonly, copy) NSString * _Nullable appId;
 /// 调试模式
 @property (nonatomic, readonly) BOOL isDebugMode;
+@property (nonatomic, readonly) BOOL isUseSDKAudioSessionSetting;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 /// 初始化SDK
@@ -730,7 +731,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ADXiluSDKMan
 ///
 /// \param completion 初始化完成回调
 ///
-- (void)initializeWithAppId:(NSString * _Nonnull)appId debug:(BOOL)debug completion:(void (^ _Nonnull)(BOOL, NSString * _Nullable))completion;
+- (void)initializeWithAppId:(NSString * _Nonnull)appId debug:(BOOL)debug useSDKAudioSessionSetting:(BOOL)useSDKAudioSessionSetting completion:(void (^ _Nonnull)(BOOL, NSString * _Nullable))completion;
 /// 获取SDK版本
 - (NSString * _Nonnull)getVersion SWIFT_WARN_UNUSED_RESULT;
 @end
