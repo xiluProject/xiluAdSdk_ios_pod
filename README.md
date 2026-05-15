@@ -25,6 +25,9 @@ xiluAdSdk是一个支持多平台广告聚合的iOS SDK，提供统一的API接�
 - **MSMobAdSDK**: 美数广告平台
 - **BeiZiSDK**: 倍孜广告平台
 - **GDTMobSDK**: 优量汇广告平台
+- **BUAdSDK**: 穿山甲广告平台
+- **BaiduMobAdSDK**: 百青藤广告平台
+- **KSAdSDK**: 快手广告平台
 - **自动选择**: 根据配置自动选择最优平台
 
 ## 系统要求
@@ -47,7 +50,7 @@ target 'YourApp' do
   use_frameworks!
   
   # 使用远程版本
-  pod 'xiluAdSdk', :git => 'https://github.com/xiluProject/xiluAdSdk_ios_pod.git', :tag => '1.0.8'
+  pod 'xiluAdSdk', :git => 'https://github.com/xiluProject/xiluAdSdk_ios_pod.git', :tag => '1.0.9'
 end
 ```
 
@@ -723,6 +726,7 @@ extension NativeRenderAdViewController: ADXiluBaseAdDelegate {
 - `xilu_AdDidReceiveMuti(_:adInfos:)` - 多个广告接收成功
 - `xilu_AdDidExpose(_:adInfo:)` - 广告曝光
 - `xilu_AdDidClick(_:adInfo:)` - 广告点击
+- `xilu_AdWillClose(_:adInfo:)` - 广告将要关闭
 - `xilu_AdDidClose(_:adInfo:)` - 广告关闭
 - `xilu_AdDidSkip(_:adInfo:)` - 广告跳过
 - `xilu_AdDidFail(_:error:)` - 广告加载失败
@@ -744,9 +748,8 @@ extension NativeRenderAdViewController: ADXiluBaseAdDelegate {
 ### 初始化配置
 
 ```swift
-// 初始化时设置调试模式
-ADXiluSDKManager.shared.initialize(appId: "your_app_id", debug: true) { success, error in
-    if success {
+// 初始化时设置调试模式(useSDKAudioSessionSetting:在播放音频时是否使用SDK内部对AVAudioSession设置的category及options,默认是false)
+ADXiluSDKManager.shared.initialize(appId:"your_app_id" , debug: true ,useSDKAudioSessionSetting: false) { success, error inif success {
         print("SDK初始化成功")
     } else {
         print("SDK初始化失败: \(error ?? "")")
@@ -796,8 +799,6 @@ ADXiluSDK/
 │   ├── ADXiluRewardVodAd.swift   # 激励视频广告
 │   ├── ADXiluSplashAd.swift      # 开屏广告
 │   └── ADXiluNativeAd.swift     # 原生广告
-├── BeiZi/                  # BeiZiSDK适配器
-├── MSMob/                  # MSMobAdSDK适配器
 ├── Extensions/              # 扩展模块
 └── Tool/                   # 工具模块
     ├── ADDeviceInfoTool.swift    # 设备信息工具
@@ -826,3 +827,16 @@ MIT License
 - 支持Objective-C和Swift
 - 最低支持iOS 12.2
 - 包含完整的示例项目
+
+### v1.0.7 (2026-01-15)
+- 新增广告平台支持
+- 支持GDTMobSDK完整的广告类型支持
+
+### v1.0.8 (2026-02-26)
+- 新增功能
+- 新增开屏广告支持广告即将关闭的代理方法
+
+### v1.0.9 (2026-05-11)
+- 新增广告平台支持
+- 支持BUAdSDK完整的广告类型支持
+- 支持BaiduMobAdSDK和KSAdSDK开屏广告集成
