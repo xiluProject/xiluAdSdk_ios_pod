@@ -38,7 +38,7 @@ Pod::Spec.new do |s|
   }
   s.dependency  'SnapKit'
   s.dependency  'CryptoSwift', '1.8.4'
-  s.dependency   'KSAdSDK'
+  s.dependency   'KSAdSDK', '5.3.20.1'
   s.dependency   'BaiduMobAdSDK', '10.050'
   s.dependency 'Ads-CN/CSJMediation', '7.4.0.4'
   s.dependency   'GDTMobSDK', "4.15.65"
