@@ -72,15 +72,16 @@ pod install
 #import "ADXiluSdk/ADXiluSDK-Swift.h"
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[ADXiluSDKManager shared] initializeWithAppId:@"your_app_id" 
-                                     debug:YES 
-                                 completion:^(BOOL success, NSString * _Nullable error) {
-        if (success) {
+    [[ADXiluSDKManager sharedManager] initializeWithAppId:@"你的appid"
+                                              debug:NO
+                     useSDKAudioSessionSetting:NO
+                                      completion:^(BOOL success, NSString * _Nullable message) {
+           if (success) {
             NSLog(@"ADXiluSDK initialized successfully");
         } else {
             NSLog(@"ADXiluSDK initialization failed: %@", error);
         }
-    }];
+}];
     return YES;
 }
 ```
