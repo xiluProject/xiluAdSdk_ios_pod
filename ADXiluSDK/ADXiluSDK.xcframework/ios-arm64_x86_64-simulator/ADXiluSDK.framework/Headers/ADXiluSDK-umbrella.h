@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "SDKLaunchDetector.h"
 
 FOUNDATION_EXPORT double ADXiluSDKVersionNumber;
 FOUNDATION_EXPORT const unsigned char ADXiluSDKVersionString[];

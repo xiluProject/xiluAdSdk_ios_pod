@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'xiluAdSdk'
-  s.version          = '1.0.8'
+  s.version          = '1.0.9'
   s.summary          = 'ADXilu iOS SDK - 广告聚合SDK'
 
   s.description      = <<-DESC
@@ -25,15 +25,25 @@ Pod::Spec.new do |s|
  
   s.swift_versions = ['5.0', '5.1', '5.2', '5.3', '5.4', '5.5', '5.6', '5.7', '5.8', '5.9', '5.10','6.0','6.1','6.2']
   s.vendored_frameworks = "ADXiluSDK/*.xcframework"
-  # Swift 库必须开启模块化
   s.pod_target_xcconfig = {
     'DEFINES_MODULE' => 'YES', # 核心：生成模块，否则其他项目无法导入
     'SWIFT_VERSION' => '5.0',
+    'BUILD_LIBRARY_FOR_DISTRIBUTION' => 'YES',
     'SKIP_INSTALL' => 'NO'
   }
-  s.dependency  'CryptoSwift'
-  s.dependency   'GDTMobSDK', '4.15.65'
-  s.dependency  'BeiZiSDK-iOS', '4.90.7.0'
-  s.dependency  'MSMobAdSDK/MS', '2.7.7.3'
+  # 针对不同Xcode版本的兼容性处理
+  s.user_target_xcconfig = {
+    'FRAMEWORK_SEARCH_PATHS' => '$(inherited)',
+    'OTHER_SWIFT_FLAGS' => '$(inherited)'
+  }
+  s.dependency  'SnapKit'
+  s.dependency  'CryptoSwift', '1.8.4'
+  s.dependency   'KSAdSDK'
+  s.dependency   'BaiduMobAdSDK', '10.050'
+  s.dependency 'Ads-CN/CSJMediation', '7.4.0.4'
+  s.dependency   'GDTMobSDK', "4.15.65"
+  s.dependency  'BeiZiSDK-iOS', "4.90.7.0"
+  s.dependency  'MSMobAdSDK/MS', "2.7.7.3"
+
   s.exclude_files = "ADXiluSDK/Classes/Tool/*.md" # 排除所有 md 文件
 end
