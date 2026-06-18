@@ -341,6 +341,7 @@ SWIFT_CLASS("_TtC9ADXiluSDK12ADXiluAdInfo")
 @property (nonatomic) NSInteger rewardAmount;
 @property (nonatomic, copy) NSString * _Nonnull rewardName;
 @property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull extraData;
+@property (nonatomic) NSInteger priority;
 @property (nonatomic) enum ADXiluAdPlatform platform;
 @property (nonatomic) BOOL isReady;
 - (nonnull instancetype)initWithAdId:(NSString * _Nonnull)adId platform:(enum ADXiluAdPlatform)platform isReady:(BOOL)isReady OBJC_DESIGNATED_INITIALIZER;
@@ -769,7 +770,6 @@ SWIFT_CLASS("_TtC9ADXiluSDK14ADXiluSplashAd")
 - (nonnull instancetype)initWithAdPosId:(NSString * _Nonnull)adPosId style:(enum ADXiluSplashAdStyle)style adSize:(ADXiluAdSize * _Nonnull)adSize OBJC_DESIGNATED_INITIALIZER;
 /// 加载广告
 - (void)loadAd;
-/// 展示广告
 - (void)showAdIn:(id _Nullable)containerView;
 /// 关闭广告
 - (void)closeAd;
