@@ -839,5 +839,5 @@ MIT License
 
 ### v1.0.9 (2026-05-11)
 - 新增广告平台支持
-- 支持BUAdSDK完整的广告类型支持
+- 支持BUAdSDK完整的广告类型
 - 支持BaiduMobAdSDK和KSAdSDK开屏广告集成
