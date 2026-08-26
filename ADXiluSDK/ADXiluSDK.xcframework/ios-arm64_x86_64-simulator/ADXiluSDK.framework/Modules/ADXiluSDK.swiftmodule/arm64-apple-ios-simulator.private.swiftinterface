@@ -475,8 +475,9 @@ public struct ADNetworkAdPosition : Swift.Codable {
   public var adTemplate: Swift.String?
   public let adSlotId: Swift.String
   public let appId: Swift.String
+  public var priority: Swift.Int
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(platform: Swift.String, adType: Swift.String, ecpm: Swift.Int, ecpmType: Swift.String, skipShowTime: Swift.Int, screenDirect: Swift.Int, requestRate: Swift.Int, adTemplate: Swift.String?, adSlotId: Swift.String, appId: Swift.String)
+  public init(platform: Swift.String, adType: Swift.String, ecpm: Swift.Int, ecpmType: Swift.String, skipShowTime: Swift.Int, screenDirect: Swift.Int, requestRate: Swift.Int, adTemplate: Swift.String?, adSlotId: Swift.String, appId: Swift.String, priority: Swift.Int)
   #endif
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
@@ -585,6 +586,7 @@ extension ADXiluSDK.ADXiluBaseAd : ADXiluSDK.ADXiluBaseAdDelegate {
   @objc dynamic public func xilu_FeedAdDidClose(_ xiluAd: ADXiluSDK.ADXiluBaseAd, adInfo: ADXiluSDK.ADXiluAdInfo)
   @objc dynamic public func xilu_AdDidFail(_ xiluAd: ADXiluSDK.ADXiluBaseAd, error: ADXiluSDK.ADXiluError)
   @objc dynamic public func xilu_AdDidSkip(_ xiluAd: ADXiluSDK.ADXiluBaseAd, adInfo: ADXiluSDK.ADXiluAdInfo)
+  public func configNetworkAdPosECPM(adInfo: ADXiluSDK.ADXiluAdInfo)
   @objc dynamic public func xilu_AdTick(_ xiluAd: ADXiluSDK.ADXiluBaseAd, remainingTime: Foundation.TimeInterval)
 }
 @objc public class ADXiluInterstitialAd : ADXiluSDK.ADXiluBaseAd {
@@ -887,6 +889,7 @@ extension ADXiluSDK.ADXiluRewardVodAd : GDTMobSDK.GDTRewardedVideoAdDelegate {
   @objc public var rewardAmount: Swift.Int
   @objc public var rewardName: Swift.String
   @objc public var extraData: [Swift.String : Any]
+  @objc public var priority: Swift.Int
   @objc public var platform: ADXiluSDK.ADXiluAdPlatform
   @objc public var isReady: Swift.Bool
   @objc public init(adId: Swift.String, platform: ADXiluSDK.ADXiluAdPlatform, isReady: Swift.Bool = true)
