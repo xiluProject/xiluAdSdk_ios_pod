@@ -50,7 +50,7 @@ target 'YourApp' do
   use_frameworks!
   
   # 使用远程版本
-  pod 'xiluAdSdk', :git => 'https://github.com/xiluProject/xiluAdSdk_ios_pod.git', :tag => '1.0.10'
+  pod 'xiluAdSdk', :git => 'https://github.com/xiluProject/xiluAdSdk_ios_pod.git', :tag => '1.0.11'
 end
 ```
 
@@ -844,3 +844,7 @@ MIT License
 
 ### v1.0.10 (2026-06-18)
 - 广告竞价功能优化
+
+### v1.0.11 (2026-08-26)
+- 新增热启动
+- 优化广告填充
